@@ -1,0 +1,14 @@
+<form
+        (ngSubmit)="onSubmit(f)" #f="ngForm"
+        (keyup)="onKeySubmit($event, f)"
+>
+    <div class="form-group">
+    <textarea class="form-control" ngModel name="message"></textarea>
+    <small>Submit by ENTER, new line by shift+ENTER. Supports markdown formatting.</small>
+    </div>
+</form>
+<app-chat-message
+        *ngFor="let message of messages | async"
+        [message]="message"
+
+></app-chat-message>

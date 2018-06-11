@@ -1,0 +1,27 @@
+<div *ngIf="oauthService.isLoggedIn()">
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-success" [routerLink]="['/','timesheet-add']">Add record</button>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Project</th>
+            <th>Task</th>
+            <th>Hours</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let entity of entities">
+            <td>{{ entity.fieldDate.value }}</td>
+            <td>{{ entity.fieldProject.entity.entityLabel}}</td>
+            <td>{{ entity.fieldTask.entity.entityLabel }}</td>
+            <td>{{ entity.fieldHours }}</td>
+            <td>{{ entity.entityLabel }}</td>
+        </tr>
+    </table>
+</div>
+
